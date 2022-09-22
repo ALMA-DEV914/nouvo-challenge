@@ -1,0 +1,57 @@
+@import './variables.scss';
+
+.product-list{
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+
+    .product-right-details{
+        display: flex;
+        width: 60%;
+        justify-content: space-between;
+
+        .product-title{
+            margin: auto 180px auto 10px;
+            padding: 15px;
+            align-items: left;
+        }
+        i:active{
+            background-color: $secondary;
+            color: $light;
+            transform: rotate(180deg);
+        }
+        i{
+            font-size: 35px;
+            margin: auto 0;
+            padding: 15px 15px;
+            color: $secondary;
+            background-color: $light;
+            border-radius: $borderRadius;
+            border: 5px solid $secondary;
+
+        }
+        
+    }
+    img{
+        width: 200px;
+       background-color: $primary;
+        margin: $spacing-md;
+    }
+
+    .product-left-details{
+        width: 40%;
+        background-color: $bg;
+        margin: $spacing-md;
+        padding: 20px;
+
+        .addCartBtn{
+            margin-left: 40%;
+            margin-top: 50%;
+            font-size: 25px;
+            background-color: $secondary;
+            color: $light;
+            padding: 8px 12px;
+            border-radius: 12px;
+        }
+    }
+}
