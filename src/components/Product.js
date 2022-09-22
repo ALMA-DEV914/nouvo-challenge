@@ -32,9 +32,10 @@ useEffect(() => {
 }, []);
 
 const handleClick = (event) => {
-  setActive(event.target.id);
+   setActive(event.target.id);
   
 }
+
   return (
     <div>
       {loading && <div>A moment please...</div>}
@@ -43,18 +44,19 @@ const handleClick = (event) => {
       )}
       <ul>
         {data &&
-          data.map(({id, title, description, price, rating: {rate, count}, image}) => (
-            <div key={id} className="product-list">
+          data.map((data, index) => (
+            <div key={index} className="product-list">
               <div className='product-right-details'>
-                <img src={image} alt="product"/>
-                <h3 className='product-title'>{title}</h3>
+               <a href={data.id}><img src={data.image} alt="product"/></a>
+               <a href={data.id} className='product-title'> <h3>{data.title}</h3></a>
     
-                <i onClick={handleClick} key={id} id={"0"}className={active === "0" ? 'fa fa-chevron-right active' : "fa fa-chevron-left"}></i>
+               <i onClick={handleClick} key={index} id={"0"}  className={active === "0" ? 'fa fa-chevron-right active'
+            : "fa fa-chevron-left"}></i>
                 </div>
              <div className='product-left-details'>
-              <p className='product-price'><b>Price: ${price}</b></p>
-              <p>{description}</p>
-            <p>{rate} {count}</p>
+              <p className='product-price'><b>Price: ${data.price}</b></p>
+              <p>{data.description}</p>
+               <p>{data.rating.rate} {data.rating.count}</p>
             <button className='addCartBtn'>Add to cart</button>
             </div>
             </div>
