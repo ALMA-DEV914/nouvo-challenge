@@ -23,7 +23,7 @@
         i{
             font-size: 35px;
             margin: auto 0;
-            padding: 15px 15px;
+            padding: 10px 15px;
             color: $secondary;
             background-color: $light;
             border-radius: $borderRadius;
@@ -44,9 +44,11 @@
         margin: $spacing-md;
         padding: 20px;
 
+        .product-price{
+           font-size: 25px;
+        }
+
         .addCartBtn{
-            margin-left: 40%;
-            margin-top: 50%;
             font-size: 25px;
             background-color: $secondary;
             color: $light;

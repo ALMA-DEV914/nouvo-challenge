@@ -31,6 +31,11 @@ useEffect(() => {
     })
 }, []);
 
+const handlePageClick = (e) => {
+  e.preventDefault()
+  setActive()
+}
+
   return (
     <div>
       {loading && <div>A moment please...</div>}
@@ -41,13 +46,13 @@ useEffect(() => {
         {data &&
           data.map(({id, title, description, price, rating: {rate, count}, image}) => (
             <div key={id} className="product-list">
-                <div className='product-right-details'>
+              <div className='product-right-details'>
                 <img src={image} alt="product"/>
                 <h3 className='product-title'>{title}</h3>
-                <i className={active ? 'fa fa-chevron-right' : "fa fa-chevron-left"}></i>
+                <i onClick={handlePageClick} className={active ? 'fa fa-chevron-right active' : "fa fa-chevron-left"}></i>
                 </div>
              <div className='product-left-details'>
-              <p><b>Price:{price}</b></p>
+              <p className='product-price'><b>Price: ${price}</b></p>
               <p>{description}</p>
             <p>{rate} {count}</p>
             <button className='addCartBtn'>Add to cart</button>
@@ -60,3 +65,4 @@ useEffect(() => {
 }
 
 export default Product
+
