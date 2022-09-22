@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import '../styles/product.scss';
 
 function Product() {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [active, setActive] = useState(false)
 
 useEffect(() => {
     fetch('https://fakestoreapi.com/products?limit=5')
@@ -41,12 +43,14 @@ useEffect(() => {
             <div key={id} className="product-list">
                 <div className='product-right-details'>
                 <img src={image} alt="product"/>
-                <h3>{title}</h3>
+                <h3 className='product-title'>{title}</h3>
+                <i className={active ? 'fa fa-chevron-right' : "fa fa-chevron-left"}></i>
                 </div>
              <div className='product-left-details'>
-              <p>{price}</p>
+              <p><b>Price:{price}</b></p>
               <p>{description}</p>
             <p>{rate} {count}</p>
+            <button className='addCartBtn'>Add to cart</button>
             </div>
             </div>
           ))}
