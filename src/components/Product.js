@@ -5,7 +5,7 @@ function Product() {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [active, setActive] = useState(false)
+    const [active, setActive] = useState("")
 
 useEffect(() => {
     fetch('https://fakestoreapi.com/products?limit=5')
@@ -31,11 +31,10 @@ useEffect(() => {
     })
 }, []);
 
-const handlePageClick = (e) => {
-  e.preventDefault()
-  setActive()
+const handleClick = (event) => {
+  setActive(event.target.id);
+  
 }
-
   return (
     <div>
       {loading && <div>A moment please...</div>}
@@ -49,7 +48,8 @@ const handlePageClick = (e) => {
               <div className='product-right-details'>
                 <img src={image} alt="product"/>
                 <h3 className='product-title'>{title}</h3>
-                <i onClick={handlePageClick} className={active ? 'fa fa-chevron-right active' : "fa fa-chevron-left"}></i>
+    
+                <i onClick={handleClick} key={id} id={"0"}className={active === "0" ? 'fa fa-chevron-right active' : "fa fa-chevron-left"}></i>
                 </div>
              <div className='product-left-details'>
               <p className='product-price'><b>Price: ${price}</b></p>

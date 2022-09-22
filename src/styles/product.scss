@@ -15,10 +15,14 @@
             padding: 15px;
             align-items: left;
         }
-        i:active{
+        .active:active{
             background-color: $secondary;
             color: $light;
             transform: rotate(180deg);
+        }
+        .active{
+            background-color: $secondary;
+            color: $light;
         }
         i{
             font-size: 35px;
@@ -57,3 +61,4 @@
         }
     }
 }
+
