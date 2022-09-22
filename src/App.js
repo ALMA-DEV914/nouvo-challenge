@@ -1,7 +1,6 @@
 import React from "react";
 import Header from "./components/Home";
 
-
 function App() {
   //content sections
   return (

@@ -16,7 +16,7 @@
             margin: auto 0;
             padding: 15px;
             width: 60%;
-            font-size: 25px;
+            font-size: 22px;
             text-decoration: none;
             color: $dark;
         }
@@ -25,7 +25,7 @@
             color: $light;
             transform: rotate(180deg);
         }
-        .active{
+       .active{
             background-color: $secondary;
             color: $light;
         }
