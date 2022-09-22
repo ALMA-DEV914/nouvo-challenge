@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../styles/product.scss";
 
+
 function Product() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -35,22 +36,6 @@ function Product() {
     setActive(event.target.id);
   };
 
-  const ModalDescription = (data) => {
-    return (
-     
-    <div className="product-left-details" id={`${data.id}`}>
-    <p className="product-price">
-      <b>Price: ${data.price}</b>
-    </p>
-    <p>{data.description}</p>
-    <p>
-      {data.rating.rate} {data.rating.count}
-    </p>
-    <button className="addCartBtn">Add to cart</button>
-  </div>
-       
-    )
-  }
 
   return (
     <div>
@@ -82,17 +67,18 @@ function Product() {
                   }
                 ></i>
               </div>
+      
               <div className="product-left-details" id={`${data.id}`}>
-    <p className="product-price">
-      <b>Price: ${data.price}</b>
-    </p>
-    <p>{data.description}</p>
-    <p>
-      {data.rating.rate} {data.rating.count}
-    </p>
-    <button className="addCartBtn">Add to cart</button>
-  </div>
-          </div>
+                <p className="product-price">
+                  <b>Price: ${data.price}</b>
+                </p>
+                <p>{data.description}</p>
+                <p>
+                  {data.rating.rate} {data.rating.count}
+                </p>
+                <button className="addCartBtn">Add to cart</button>
+              </div>
+            </div>
           ))}
       </ul>
     </div>
