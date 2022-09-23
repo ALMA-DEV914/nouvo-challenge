@@ -1,89 +1,57 @@
 import React, { useEffect, useState } from "react";
 import "../styles/product.scss";
-
+import { useParams } from "react-router";
+import "../styles/product.scss"
 
 function Product() {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [active, setActive] = useState("");
+    const {id} = useParams();
+    const [product, setProduct] = useState([]);
+   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products?limit=5")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error(
-            `This is an HTTP error: The status is ${response.status}`
-          );
-        }
-        return response.json();
-      })
-      .then((actualData) => {
-        setData(actualData);
-        console.log(actualData);
-        setError(null);
-      })
-      .catch((err) => {
-        setError(err.message);
-        setData(null);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    const getProduct = async () => {
+        setLoading(true);
+        const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+        setProduct(await response.json())
+        setLoading(false)
+    }
+    getProduct()
   }, []);
 
-  const handleClick = (event) => {
-    setActive(event.target.id);
-  };
+  const Loading = () => {
+    return (<>Loading...</>)
+  }
 
+  const ShowProduct = () => {
+    return (
+    <>
+    <a href="/" className="backBtn"><i class="fa fa-arrow-left"> Go back </i></a>
+    <div className="extra-detail">
+        
+    <div className="single-product">
+        <img src={product.image} alt={product.title} height="400px" width="400px"/>
+      </div>
+      <div className="single-pro-left">
+        <p className='text-category'>{product.category}</p>
+        <h1>{product.title}</h1>
+       <h2>Price: ${product.price}</h2>
+       <p>{product.description}</p>
+       <p>Rating: {product.rating && product.rating.rate} ({product.rating && product.rating.count})</p>
+       <button className="addCartBtn">Add to cart</button>
+    </div>
+    </div>
+    </>)
+  }
 
   return (
     <div>
-      {loading && <div>A moment please...</div>}
-      {error && (
-        <div>{`There is a problem fetching the product data - ${error}`}</div>
-      )}
-      <ul>
-        {data &&
-          data.map((data, index) => (
-            <div key={index} className="product-list">
-              <div className="product-right-details">
-                <a href={data.id}>
-                  <img src={data.image} alt="product" />
-                </a>
-                <a href={data.id} className="product-title">
-                  {" "}
-                  <h3>{data.title}</h3>
-                </a>
-
-                <i
-                  onClick={handleClick}
-                  key={index}
-                  id={`${data.id}`}
-                  className={
-                    active === `${data.id}`
-                      ? "fa fa-chevron-right active"
-                      : "fa fa-chevron-left"
-                  }
-                ></i>
-              </div>
-      
-              <div className="product-left-details" id={`${data.id}`}>
-                <p className="product-price">
-                  <b>Price: ${data.price}</b>
-                </p>
-                <p>{data.description}</p>
-                <p>
-                  {data.rating.rate} {data.rating.count}
-                </p>
-                <button className="addCartBtn">Add to cart</button>
-              </div>
-            </div>
-          ))}
-      </ul>
-     
+      <div className="container">
+        <div className="row py-5">
+            {loading ? <Loading/> : <ShowProduct/>}
+        </div>
+      </div>
     </div>
-  );
+  )
 }
 
-export default Product;
+export default Product

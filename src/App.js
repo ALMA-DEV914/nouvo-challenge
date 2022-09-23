@@ -1,11 +1,20 @@
 import React from "react";
-import Header from "./components/Home";
+import Products from "./components/Products";
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom"
+import Home from "./components/Home";
+import Product from "./components/Product";
 
 function App() {
   //content sections
   return (
     <div>
-      <Header />
+      <Router>
+      <Routes>
+        <Route exact path="/" element={<Home/>}/>
+        <Route exact path="/products" element={<Products/>}/>
+        <Route exact path="/product/:id" element={<Product/>}/>
+      </Routes>
+      </Router>
     </div>
   );
 }
