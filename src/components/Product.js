@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import '../styles/product.scss';
+import {DynamicStar} from "react-dynamic-star";
 
 function Product() {
   const {id} = useParams();
@@ -35,7 +36,7 @@ const ShowProduct = () => {
       <h1>{product.title}</h1>
      <h2>Price: ${product.price}</h2>
      <p>{product.description}</p>
-     <p>Rating: {product.rating && product.rating.rate} ({product.rating && product.rating.count})</p>
+     <p><DynamicStar rating={product.rating && product.rating.rate}  width="30" height="50" outlined="black" /> Count: ({product.rating && product.rating.count})</p>
      <button className="addCartBtn">Add to cart</button>
   </div>
   </div>

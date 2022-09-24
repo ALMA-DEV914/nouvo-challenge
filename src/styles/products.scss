@@ -7,14 +7,13 @@
 
     .product-right-details{
         display: flex;
-        width: 60%;
+        width: 50%;
         justify-content: space-between;
         text-align: left;
 
         .product-title{
             margin: auto 0;
-            padding: 15px;
-            width: 60%;
+            padding: $padding;
             font-size: 22px;
             text-decoration: none;
             color: $dark;
@@ -27,6 +26,7 @@
        .active{
             background-color: $secondary;
             color: $light;
+            margin-right: 5%;
         }
     
         i{
@@ -51,7 +51,7 @@
         width: 40%;
         background-color: $bg;
         margin: $spacing-md;
-        padding: 20px;
+        padding: $padding;
         
     
         .product-price{
@@ -63,9 +63,11 @@
             background-color: $secondary;
             color: $light;
             width: 100%;
+            margin: 5% auto;
             padding: 8px 24px;
-            border-radius: 12px;
+            border-radius: $borderRadius1;
         }
+        
     }
 }
 
@@ -109,9 +111,9 @@
         .product-left-details{
             width: 90%;
             background-color: $bg;
-            padding: 20px;
+            padding: $padding;
             text-align: center;
-            margin: 0 auto;
+            margin: -5% auto 5%;
         
             .product-price{
                font-size: 22px;
@@ -170,9 +172,9 @@
         .product-left-details{
             width: 80%;
             background-color: $bg;
-            padding: 20px;
+            padding: $padding;
             text-align: center;
-            margin: 0 auto ;
+            margin: -5% auto 5%;
         
             .product-price{
                font-size: 22px;
@@ -223,16 +225,16 @@
         img{
           width: 350px;
           height: 350px;
-           background-color: $primary;
+          background-color: $primary;
 
         }
     
         .product-left-details{
             width: 70%;
             background-color: $bg;
-            padding: 20px;
+            padding: $padding;
             text-align: center;
-            margin: 0 auto;
+            margin: -5% auto 5%;
         
             .product-price{
                font-size: 22px;
@@ -243,7 +245,7 @@
                 background-color: $secondary;
                 color: $light;
                 padding: 8px 12px;
-                border-radius: 12px;
+                border-radius: $borderRadius1;
             }
         }
     }

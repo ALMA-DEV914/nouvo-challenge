@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../styles/products.scss";
-import Product from "./Product";
+import { DynamicStar } from 'react-dynamic-star';
 
 function Products() {
   const [data, setData] = useState(null);
@@ -13,11 +13,16 @@ function Products() {
   useEffect(() => {
     const getProducts = async () => {
       setLoading(true);
-      const response = await fetch("https://fakestoreapi.com/products?limit=8");
+      const response = await fetch("https://fakestoreapi.com/products?limit=5");
       if (componentMounted) {
         setData(await response.clone().json());
         setLoading(false);
+        
         console.log(response);
+      }else{
+        if(error){
+          setError(error.meassage)
+        }
       }
 
       return () => {
@@ -25,12 +30,14 @@ function Products() {
       };
     };
     getProducts();
+   
   }, []);
 
   const handleClick = (event) => {
     setActive(event.target.id);
     setShow(event.target.id);
   };
+
 
   return (
     <div>
@@ -48,7 +55,7 @@ function Products() {
                 </a>
                 <a href={`/product/${data.id}`} className="product-title">
                   {" "}
-                  <h3>{data.title}</h3>
+                  <h3>{data.title.substring(0,12)}</h3>
                 </a>
 
                 <i
@@ -73,9 +80,9 @@ function Products() {
                     <b>Price: ${data.price}</b>
                   </p>
                   <p>{data.description}</p>
-                  <p>Rating: 
-                    {data.rating.rate} ({data.rating.count})
-                  </p><br></br>
+                
+             <DynamicStar rating={data.rating.rate} width="30" height="50" outlined="black" />Count: ({data.rating.count})
+               <br></br>
                   <button className="addCartBtn">Buy Now</button>
                 </div>
               ) : null}

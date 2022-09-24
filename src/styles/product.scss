@@ -4,14 +4,14 @@
     display: flex;
     width: 60%;
     margin: 5%  auto;
-    padding: 20px;
+    padding:$padding;
     justify-content: space-between;
 
     .single-product{
         margin: 5%;
     }
     .single-pro-left{
-        padding: 20px;
+        padding: $padding;
     }
     .addCartBtn{
         font-size: 22px;
@@ -44,7 +44,7 @@
         margin: 5%;
     }
     .single-pro-left{
-        padding: 20px;
+        padding: $padding;
     }
 }
 
@@ -58,7 +58,7 @@
         margin: 5%;
     }
     .single-pro-left{
-        padding: 20px;
+        padding: $padding;
     }
 }
 @media screen and(max-width:390px) {
@@ -71,6 +71,6 @@
         margin: 5%;
     }
     .single-pro-left{
-        padding: 20px;
+        padding: $padding;
     }
 }
