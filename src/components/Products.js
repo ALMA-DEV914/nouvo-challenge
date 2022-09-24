@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import "../styles/products.scss";
 import { DynamicStar } from "react-dynamic-star";
+import { redirect } from "react-router-dom";
 //function to fetch the products data
 function Products() {
   const [data, setData] = useState(null);
@@ -14,9 +15,19 @@ function Products() {
   useEffect(() => {
     const getProducts = async () => {
       setLoading(true);
-      const response = await fetch("https://fakestoreapi.com/products?limit=5");
+      const myHeaders = {
+        "headers": "Access-Control-Allow-Origin', '*",
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With",
+    };
+      const response = await fetch("https://fakestoreapi.com/products?limit=5", {
+       method: "GET", // POST, PUT, DELETE, etc.
+        mode: "no-cors",
+        headers: myHeaders, //headers
+        redirect: "follow"
+      })
+      
       if (componentMounted) {
-        setData(await response.clone().json());
+        setData(await response.json());
         setLoading(false);
 
         console.log(response);

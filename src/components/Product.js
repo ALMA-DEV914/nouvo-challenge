@@ -13,7 +13,16 @@ function Product() {
   useEffect(() => {
     const getProduct = async () => {
       setLoading(true);
-      const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+      const myHeaders = {
+        "headers": "Access-Control-Allow-Origin', '*",
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With",
+    };
+      const response = await fetch(`https://fakestoreapi.com/products/${id}`, {
+       method: "GET", // POST, PUT, DELETE, etc.
+        mode: "no-cors",
+        headers: myHeaders, //headers
+        redirect: "follow"
+        });// null);
       setProduct(await response.json());
       setLoading(false);
     };
