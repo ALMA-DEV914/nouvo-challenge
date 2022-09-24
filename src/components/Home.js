@@ -1,9 +1,10 @@
+//import dependencies and associated files
 import React from 'react'
 import '../styles/header.scss';
+//importing our procuts component 
 import Products from './Products';
-
+//function to create a home component
 function Home() {
-  
   return (
     <>
     <div className='header'>
@@ -16,5 +17,5 @@ function Home() {
   </>
   )
 }
-
+//export the home component
 export default Home;

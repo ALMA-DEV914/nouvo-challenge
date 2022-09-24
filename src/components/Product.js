@@ -1,13 +1,15 @@
+// import all necessary dependencies to run our product component
 import React, {useEffect, useState} from "react";
 import { useParams } from "react-router-dom";
 import '../styles/product.scss';
 import {DynamicStar} from "react-dynamic-star";
+// function to get a single product data and I use useparams router here
 
 function Product() {
   const {id} = useParams();
   const [product, setProduct] = useState([]);
- const [loading, setLoading] = useState(false);
-
+  const [loading, setLoading] = useState(false);
+//fetching single data by useEffect() hooks 
 useEffect(() => {
   const getProduct = async () => {
       setLoading(true);
@@ -18,10 +20,11 @@ useEffect(() => {
   getProduct()
 }, [id]);
 
+
 const Loading = () => {
   return (<>Loading...</>)
 }
-
+//function to show the data we needed 
 const ShowProduct = () => {
   return (
   <>
@@ -42,17 +45,18 @@ const ShowProduct = () => {
   </div>
   </>)
 }
-
+// then we have to call the subcomponent above to display the ddocument into the browser
 return (
   <div>
     <div className="container">
       <div className="row py-5">
+        {/* ternary function that if it is loading then we can show the laoding component otherwise we display the Product component */}
           {loading ? <Loading/> : <ShowProduct/>}
       </div>
     </div>
   </div>
 )
 }
-
+//exporting the product component
 export default Product
 

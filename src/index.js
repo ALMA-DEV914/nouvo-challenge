@@ -1,3 +1,4 @@
+//importing the dependencies needed to buikld the react app
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/index.scss'
