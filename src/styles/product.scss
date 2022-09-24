@@ -58,6 +58,7 @@
     }
     .single-product{
         margin: 5%;
+
     }
     .single-pro-left{
         padding: $padding;
@@ -96,10 +97,33 @@
     .extra-detail{
         display: block;
         width: 100%;
+        margin: 0 auto;
+        padding: 15px;
+    }
+    .single-product{
+        margin: 5% auto;
+        width: 90%;
+        img{
+            width: 100%;
+        }
+    }
+    .single-pro-left{
+        padding: $padding;
+        width: 90%;
+    }
+}
+
+@media screen and(max-width:375px) {
+    .extra-detail{
+        display: block;
+        width: 100%;
         justify-content: center;
     }
     .single-product{
-        margin: 5%;
+        margin: 5% auto;
+        img{
+            width: 300px;
+        }
     }
     .single-pro-left{
         padding: $padding;

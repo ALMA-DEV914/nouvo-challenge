@@ -12,7 +12,7 @@
    h1{
      font-size: 45px;
    }
-   
+
    @media screen and(max-width:1024px) {
     .header-content{
      width: 80%;
@@ -32,14 +32,20 @@
    }
 
    @media screen and(max-width:414px) {
+    .header{
+      width: 100%;
     .header-content{
      width: 70%;
     }
+  }
 }
 @media screen and(max-width:390px) {
+  .header{
+    width: 100%;
   .header-content{
-   width: 70%;
+   width: 80%;
   }
+}
 }
   
 }
