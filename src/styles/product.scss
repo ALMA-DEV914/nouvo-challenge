@@ -35,6 +35,36 @@
     background-color: $light;
 }
 
+@media screen and(max-width:1024px) {
+    .extra-detail{
+        
+        width: 100%;
+        justify-content: center;
+    }
+    .single-product{
+        margin: 5%;
+    }
+    .single-pro-left{
+        padding: $padding;
+    }
+}
+
+
+@media screen and(max-width:768px) {
+    .extra-detail{
+        display: block;
+        width: 100%;
+        justify-content: center;
+    }
+    .single-product{
+        margin: 5%;
+    }
+    .single-pro-left{
+        padding: $padding;
+    }
+}
+
+
 @media screen and(max-width:575px) {
     .extra-detail{
         display: block;
