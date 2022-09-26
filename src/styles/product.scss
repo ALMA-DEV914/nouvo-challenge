@@ -73,7 +73,7 @@
         justify-content: center;
     }
     .single-product{
-        margin: 5%;
+        margin: 5% auto;
     }
     .single-pro-left{
         padding: $padding;
@@ -87,7 +87,7 @@
         justify-content: center;
     }
     .single-product{
-        margin: 5%;
+        margin: 5% auto;
     }
     .single-pro-left{
         padding: $padding;
@@ -97,7 +97,6 @@
     .extra-detail{
         display: block;
         width: 100%;
-        margin: 0 auto;
         padding: 15px;
     }
     .single-product{
