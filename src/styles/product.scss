@@ -9,7 +9,7 @@
     justify-content: space-between;
 
     .single-product{
-        margin: 5%;
+        margin: 5% auto;
     }
     .single-pro-left{
         padding: $padding;
@@ -37,12 +37,11 @@
 
 @media screen and(max-width:1024px) {
     .extra-detail{
-        
         width: 100%;
         justify-content: center;
     }
     .single-product{
-        margin: 5%;
+        margin: 5% auto;
     }
     .single-pro-left{
         padding: $padding;
@@ -52,12 +51,14 @@
 
 @media screen and(max-width:768px) {
     .extra-detail{
-        display: block;
         width: 100%;
         justify-content: center;
     }
     .single-product{
         margin: 5% auto;
+        img{
+            width: 320px;
+        }
     }
     .single-pro-left{
         padding: $padding;
@@ -73,6 +74,7 @@
     }
     .single-product{
         margin: 5% auto;
+        text-align: center;
     }
     .single-pro-left{
         padding: $padding;
@@ -83,7 +85,7 @@
     .extra-detail{
         display: block;
         width: 100%;
-        justify-content: center;
+        text-align: center;
     }
     .single-product{
         margin: 5% auto;
@@ -96,7 +98,7 @@
     .extra-detail{
         display: block;
         width: 100%;
-        padding: 15px;
+        text-align: center;
     }
     .single-product{
         margin: 5% auto;

@@ -201,14 +201,14 @@
     .product-list{
         display: block;
         width: 100%;
-    
+        text-align: center;
+
         .product-right-details{
             display: block;
             width: 100%;
             text-align:center;
     
             .product-title{
-                margin: 0 auto ;
                 width: 100%;
                 font-size: 20px;
                 text-decoration: none;
@@ -261,13 +261,13 @@
     .product-list{
         display: block;
         width: 100%;
+        text-align: center;
     
         .product-right-details{
             display: block;
             width: 100%;
            
             .product-title{
-                margin: 0 auto ;
                 width: 100%;
                 font-size: 20px;
                 text-decoration: none;
@@ -320,6 +320,7 @@
     .product-list{
         display: block;
         width: 100%;
+        text-align: center;
     
         .product-right-details{
             display: block;
@@ -327,7 +328,6 @@
             
     
             .product-title{
-                margin: 0 auto ;
                 font-size: 18px;
                 text-decoration: none;
                 color: $dark;
